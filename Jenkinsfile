@@ -28,6 +28,8 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
+        /*Ref:https://getintodevops.com/blog/building-your-first-docker-image-with-jenkins-2-guide-for-developers
+         * Add credential in jenkins with ID docker-hub-credentials*/
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
